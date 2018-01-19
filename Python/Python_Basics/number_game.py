@@ -15,5 +15,10 @@ def main():
             break
         else:
             print("That's not it!")
+            # give a hint
+            if guess > secret_num:
+                print("Hint: Guess lower.")
+            else:
+                print("Hint: Guess higher.")
 
 main()
