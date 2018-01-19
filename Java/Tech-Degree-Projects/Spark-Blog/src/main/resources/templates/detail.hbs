@@ -1,0 +1,44 @@
+{{#partial "title"}}Details{{/partial}}
+{{#partial "content"}}
+<section>
+    <div class="container">
+        <div class="entry-list single">
+            <article>
+                <h1>{{ blogEntry.title }}</h1>
+                <time datetime="2016-01-31 1:00">{{ blogEntry.date }}</time>
+                {{#if blogEntry.tags}}
+                <p class="tags">Tags: {{#each blogEntry.tags }}{{ this }}{{/each}}</p>
+                {{/if}}
+                <div class="entry">
+                    <p>{{ blogEntry.body }}</p>
+                    <p><a class="link" href="/edit/{{ blogEntry.slug }}">Edit Entry</a></p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+<section class="entry-comments">
+    <div class="container">
+        <h2>Comments</h2>
+        <div class="comment">
+            {{#each blogEntry.comments}}
+            <strong>{{ this.name }}</strong>
+            <time datetime="2016-01-31 1:00">{{ this.date }}</time>
+            <p>{{ this.comment }}</p>
+            <br>
+            {{/each}}
+        </div>
+        <div class="new-comment">
+            <form action="/detail/{{ blogEntry.slug }}/comment" method="post">
+                <label for="name"> Name</label>
+                <input type="text" name="name"><br>
+                <label for="comment">Comment</label>
+                <textarea rows="5" name="comment"></textarea>
+                <input type="submit" value="Post Comment" class="button">
+            </form>
+        </div>
+    </div>
+</section>
+{{/partial}}
+
+{{> base.hbs}}

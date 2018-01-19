@@ -1,0 +1,26 @@
+{{#partial "title"}}Edit{{/partial}}
+{{#partial "content"}}
+<section>
+    <div class="container">
+        <div class="edit-entry">
+            <h2>Edit Entry</h2>
+            <form action="/edit/{{ blogEntry.slug }}" method="post">
+                <label for="title">Title </label>
+                <input type="text" name="title" value="{{ blogEntry.title }}"><br>
+                <label for="tags">Tags - Separate by comma(s)</label>
+                <input type="text" name="tags" value="{{#each blogEntry.tags }}{{ this }}{{/each}}"><br>
+                <label for="entry">Entry</label>
+                <textarea rows="5" name="entry">{{ blogEntry.body }}</textarea>
+                    <input type="submit" value="Save Entry" class="button">
+                    <a href="/index" class="button button-secondary">Cancel</a>
+                </form>
+                <form action="/delete/{{ blogEntry.slug }}" method="post">
+                    <input type="submit" value="DELETE" class="button button-delete">
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{{/partial}}
+
+{{> base.hbs}}
