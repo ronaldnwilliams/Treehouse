@@ -10,6 +10,7 @@ def game():
     word_hidden = dashes.split()
 
     while True:
+        print_hangman(misses)
         if misses == 6:
             print("Nice try, you've been hanged.")
             break;
@@ -51,5 +52,77 @@ def set_up():
     print("ADMIN SET UP")
     print("=" * 10)
     return input("What should the word be? ")
+
+def print_hangman(misses):
+    if misses == 0:
+        print("""
+            _______
+            |    |
+            |    
+            |
+            |
+            |
+           =========
+        """)
+    if misses == 1:
+        print("""
+            _______
+            |    |
+            |    O
+            |
+            |
+            |
+           =========
+        """)
+    if misses == 2:
+        print("""
+            _______
+            |    |
+            |    O
+            |    |
+            |
+            |
+           =========
+        """)
+    if misses == 3:
+        print("""
+            _______
+            |    |
+            |    O
+            |    |\\
+            |
+            |
+           =========
+        """)
+    if misses == 4:
+        print("""
+            _______
+            |    |
+            |    O
+            |   /|\\
+            |
+            |
+           =========
+        """)
+    if misses == 5:
+        print("""
+            _______
+            |    |
+            |    O
+            |   /|\\
+            |     \\
+            |
+           =========
+        """)
+    if misses == 6:
+        print("""
+            _______
+            |    |
+            |    O
+            |   /|\\
+            |   / \\
+            |
+           =========
+        """)
 
 game()
