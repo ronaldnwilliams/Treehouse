@@ -75,8 +75,16 @@ def stats(dictionary):
         teacher_courses.append([key, len(dictionary[key])])
     return teacher_courses
 
-print(num_teachers(dictionary))
-print(num_courses(dictionary))
-print (courses(dictionary))
-print(most_courses(dictionary))
-print(stats(dictionary))
+# print(num_teachers(dictionary))
+# print(num_courses(dictionary))
+# print (courses(dictionary))
+# print(most_courses(dictionary))
+# print(stats(dictionary))
+
+course_minutes = {"Python Basics" : 232, "Django Basics" : 237, "Flask Basics": 189, "Java Basics" : 133}
+
+for course, minutes in course_minutes.items():
+    print("{} is {} minutes long".format(course, minutes))
+
+# for index, letter in enumerate("abcdefghijklmnopqrstuvwxyz"):
+#     print("{}. {}".format(index+1, letter))
