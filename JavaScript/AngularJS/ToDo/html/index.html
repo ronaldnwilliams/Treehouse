@@ -6,19 +6,12 @@
         <link href='../styles/main.css' rel='stylesheet' type="text/css">
     </head>
     <body ng-app="todoListApp">
-
         <h1>My TODOs</h1>
-        <div ng-controller="mainCtrl" class="list">
-            <input type="checkbox"/>
-            <label class="editing-label">a sample todo!</label>
-            <input class="editing-label" type="text"/>
-            <div class="actions">
-                <a href="">edit</a>
-                <a href="" ng-click="helloWorld()">save</a>
-                <a href="" class="delete">delete</a>
-            </div>
-        </div>
+        <todos></todos>
         <script src="../vendor/angular.js" type="text/javascript"></script>
         <script src="../scripts/app.js" type="text/javascript"></script>
+        <script src="../scripts/controllers/main.js" type="text/javascript"></script>
+        <script src="../scripts/services/data.js" type="text/javascript"></script>
+        <script src="../scripts/directives/todos.js" type="text/javascript"></script>
     </body>
 </html>
