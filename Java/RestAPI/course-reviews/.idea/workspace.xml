@@ -82,10 +82,13 @@
       <file leaf-file-name="ApiTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/teamtreehouse/courses/ApiTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
+            <state relative-caret-position="385">
               <caret line="119" column="40" lean-forward="false" selection-start-line="119" selection-start-column="40" selection-end-line="119" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1519260768545" expanded="true" signature="2515:2925" ph="{...}" />
+                <marker date="1519260768545" expanded="true" signature="3011:3318" ph="{...}" />
+                <marker date="1519260768545" expanded="true" signature="3398:3849" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -108,7 +111,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/teamtreehouse/courses/dao/Sql2oCourseDao.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="679">
-              <caret line="42" column="8" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="46" selection-end-column="9" />
+              <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="46" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -137,6 +140,9 @@
               <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1519258814634" expanded="true" signature="1114:1319" ph="{...}" />
+                <marker date="1519258814634" expanded="true" signature="1413:1680" ph="{...}" />
+                <marker date="1519258814634" expanded="true" signature="1797:1895" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -146,7 +152,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/com/teamtreehouse/courses/dao/Sql2oCourseDaoTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="38" lean-forward="true" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+              <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -1005,6 +1011,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="141" y="54" width="1626" height="1052" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1177,7 +1184,7 @@
         <state relative-caret-position="90">
           <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1239,7 +1246,7 @@
         <state relative-caret-position="90">
           <caret line="9" column="38" lean-forward="false" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1348,7 +1355,7 @@
         <state relative-caret-position="0">
           <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1413,7 +1420,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/teamtreehouse/courses/dao/Sql2oCourseDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="679">
-          <caret line="42" column="8" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="46" selection-end-column="9" />
+          <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="46" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1452,7 +1459,7 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/com/teamtreehouse/courses/dao/Sql2oCourseDaoTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="38" lean-forward="true" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+          <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -1463,6 +1470,9 @@
           <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1519258814634" expanded="true" signature="1114:1319" ph="{...}" />
+            <marker date="1519258814634" expanded="true" signature="1413:1680" ph="{...}" />
+            <marker date="1519258814634" expanded="true" signature="1797:1895" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1489,10 +1499,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/teamtreehouse/courses/ApiTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
+        <state relative-caret-position="385">
           <caret line="119" column="40" lean-forward="false" selection-start-line="119" selection-start-column="40" selection-end-line="119" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1519260768545" expanded="true" signature="2515:2925" ph="{...}" />
+            <marker date="1519260768545" expanded="true" signature="3011:3318" ph="{...}" />
+            <marker date="1519260768545" expanded="true" signature="3398:3849" ph="{...}" />
           </folding>
         </state>
       </provider>
