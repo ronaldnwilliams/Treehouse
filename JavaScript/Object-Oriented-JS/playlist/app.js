@@ -2,9 +2,11 @@ var playlist = new Playlist();
 
 var bellbottoms = new Song("Bellbottoms", "The Jon Spencer Blues Explosion", "5:18");
 var harlemShuffle = new Song("Harlem Shuffle", "Bob & Earl", "2:48");
+var jumanji = new Movie("Jumanji: Welcome to the Jungle", 2018, "1:59:00");
 
 playlist.add(bellbottoms);
 playlist.add(harlemShuffle);
+playlist.add(jumanji);
 
 var playlistElement = document.getElementById("playlist");
 
