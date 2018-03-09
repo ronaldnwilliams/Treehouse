@@ -1,5 +1,8 @@
+import logging
 import os
 import random
+
+logging.basicConfig(filename='game.log', level=logging.DEBUG)
 
 CELLS = [(0, 0), (1, 0), (2, 0), (3, 0), (4, 0),
          (0, 1), (1, 1), (2, 1), (3, 1), (4, 1),
@@ -85,8 +88,10 @@ def hide_move_shortcuts(moves):
 
 def game_loop():
     monster, door, player = get_locations()
+    logging.info('monster: {}, door: {}, player: {}'.format(monster, door, player))
     previous_player = []
     playing = True
+
     while playing:
         clear_screen()
         draw_map(player, previous_player)
