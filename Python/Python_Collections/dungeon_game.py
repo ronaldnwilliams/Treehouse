@@ -93,7 +93,6 @@ def game_loop():
         previous_player.append(player)
         valid_moves = get_moves(player)
 
-        print(type(player))
         print("You are currently in room {}.".format(player)) # fill with player location
         print("You can move {}".format(", ".join(hide_move_shortcuts(valid_moves)))) # fill with available moves
         print("Enter Q to quit.")
