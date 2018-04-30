@@ -7,10 +7,6 @@ from flask.ext.login import (LoginManager, login_user, logout_user,
 import forms
 import models
 
-DEBUG = True
-PORT = 8080
-HOST = '0.0.0.0'
-
 app = Flask(__name__)
 app.secret_key = 'asdhasfdshfkjnfef.elfm,welfmwejfnewkf,wkmn35623t72hdfjehfi'
 
@@ -184,4 +180,4 @@ if __name__ == '__main__':
         )
     except ValueError:
         pass
-    app.run(debug=DEBUG, host=HOST, port=PORT)
+    app.run()
