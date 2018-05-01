@@ -23,5 +23,7 @@ app.run(debug=True, port=8080, host='0.0.0.0')
 
 # python3 -m venv <vitrualenv name>
 # source <vitrualenv name>/bin/activate
-# pip install flask
+# pip install flask or pip install -r requirements.txt
+# pip freeze > requirements.txt
 # deactivate to end
+# rm -rf <virtualenv name>

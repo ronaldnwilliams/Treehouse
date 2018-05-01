@@ -2,9 +2,9 @@
 <html>
   <head>
     <title>Tacocat</title>
-    <link rel="stylesheet" href="/static/css/normalize.css">
-    <link rel="stylesheet" href="/static/css/skeleton.css">
-    <link rel="stylesheet" href="/static/css/tacocat.css">
+    <link rel="stylesheet" href="./../static/css/normalize.css">
+    <link rel="stylesheet" href="./../static/css/skeleton.css">
+    <link rel="stylesheet" href="./../static/css/tacocat.css">
   </head>
   <body>
     {% with messages=get_flashed_messages() %}
@@ -31,6 +31,7 @@
             <a href="{{ url_for('login') }}" title="Log in">Log in</a>
             <a href="{{ url_for('register')}}" title="Register">Register</a>
           {% endif %}
+          <img src="./../static/images/tacocat.svg" alt="">
           </nav>
           {% block content %}{% endblock %}
         </div>
