@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+{% block title %}{{ article.title }}{% endblock title %}
+{% block home %}
+  <a class="text-white" href="/">
+    <img class="" src="{% static 'images/logo-nav.png' %}" alt="python logo"/>
+    The Ronald Tribune
+  </a>
+{% endblock home %}
+{% block content %}
+<div class="mt-5">
+  <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+    <h1 class="display-4 font-italic text-center">{{ article.title }}</h1>
+    <img class="img-fluid rounded" src="{% static article.image_loc %}" alt="article image">
+    <p class="lead my-3">{{ article.description }}</p>
+    <div class="pt-5">
+      <h3 >Comments:</h3>
+      {% for comment in article.comment_set.all %}
+      <ul class="list-group text-dark">
+        <li class="list-group-item">
+          <p>Anonymous ({{ comment.created_at }}):</p>
+          <p>{{ comment.comment }}</p>
+        </li>
+      </ul>
+      {% endfor comments  %}
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
