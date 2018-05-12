@@ -25,7 +25,7 @@ SECRET_KEY = 'vnl8igb@%g1a&aio^!7c8@nex5)&&psq@n*+8e5@=%um&k4zsn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['the-ronald-tribune.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
