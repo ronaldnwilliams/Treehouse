@@ -1,10 +1,12 @@
 {% load static from staticfiles %}
+{% load course_extras %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>{% block title %}{% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    {% block static %}{% endblock static %}
   </head>
   <body>
     <div class="site-container">
@@ -14,6 +16,11 @@
         <a href="{% url 'teachers:list' %}">Teachers</a>
       </nav>
     </div>
-    <div class="site-container">{% block content %}{% endblock content %}</div>
+    <div class="">
+      <p>Don't miss our latest course: {% newest_course %}</p>
+    </div>
+    <div class="site-container">
+      {% block content %}{% endblock content %}
+    </div>
   </body>
 </html>
