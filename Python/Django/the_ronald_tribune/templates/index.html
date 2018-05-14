@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% load static from staticfiles %}
+{% load article_extras %}
 {% block title %}The Ronald Tribune{% endblock title %}
 {% block content %}
 <div class="py-3 text-center">
@@ -7,11 +8,12 @@
     <p class="font-weight-bold">Software Developer. For Hire. <a href="http://ronaldnwilliams.com" target="on_blank">Hire Me</a></p>
 </div>
 <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
-  <img class="d-lg-none rounded border border-white" src="{% static featuredArticle.image_loc %}" alt="skills" style="width: 100%;" />
-  <img class="d-none d-lg-block rounded border border-white float-right" src="{% static featuredArticle.image_loc %}" alt="skills" style="height: 35%; width: 35%;" />
+  {% featured_article 2 as featured_article %}
+  <img class="d-lg-none rounded border border-white" src="{% static featured_article.image_loc %}" alt="skills" style="width: 100%;" />
+  <img class="d-none d-lg-block rounded border border-white float-right" src="{% static featured_article.image_loc %}" alt="skills" style="height: 35%; width: 35%;" />
   <div class="col-md-6 px-0">
-    <h1 class="display-4 font-italic"><a class="text-white" href="articles/{{ featuredArticle.id }}">{{ featuredArticle.title }}</a></h1>
-    <p class="lead my-3">{{ featuredArticle.description|truncatewords:29 }}</p>
+    <h1 class="display-4 font-italic"><a class="text-white" href="articles/{{ featured_article.id }}">{{ featured_article.title }}</a></h1>
+    <p class="lead my-3">{{ featured_article.description|truncatewords:29 }}</p>
     <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
   </div>
 </div>
@@ -40,7 +42,6 @@
 {% if forloop.counter|divisibleby:2  %}
 </div>
 {% endif %}
-
 {% endfor  articles %}
 
 {% endblock content%}
