@@ -1,0 +1,82 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Shopper</title>
+    <link rel="stylesheet" href="{% static 'css/autocomplete.css' %}">
+  </head>
+  <body>
+    <div class="">
+      <h1>Smart List</h1>
+      <div class="">
+        <form class="" action="" method="post">
+          {% csrf_token %}
+          <select class="" name="stores" onchange="storeChange(this)">
+            {% for store in stores %}
+              {% if store.name == selected_store.name %}
+              <option value="{{ store.id }}" selected>{{ store.name }}</option>
+              {% else %}
+              <option value="{{ store.id }}">{{ store.name }}</option>
+              {% endif %}
+            {% endfor stores %}
+          </select>
+        </form>
+        <ul style="list-style-type:none">
+          <form class="" action="{% url 'toggle' selected_store.id %}" method="post">
+            {% csrf_token %}
+            {% for item in selected_store.item_set.all %}
+              <li class="list-item">
+                <p>
+                  <button type="submit" name="id" value="{{ item.id }}" style="background: none; border: none;">
+                    {% if item.checked %}
+                    <img src="{% static 'images/checked.png' %}" alt="checked"/>
+                    {% else %}
+                    <img src="{% static 'images/unchecked.png' %}" alt="unchecked"/>
+                    {% endif %}
+                  </button>
+                  {{ item.name }}
+                </p>
+              </li>
+              <li>
+                {% empty %}
+                <p>No items yet.</p>
+              </li>
+            {% endfor selected_store.items_set.all %}
+          </form>
+          <li>
+            <form autocomplete="off" action="{% url 'add' selected_store.id %}" method="post">
+              {% csrf_token %}
+              <div class="autocomplete" style="width:300px;">
+                <input id="itemInput" type="text" name="name" value="" placeholder="item">
+              </div>
+              <input id="submit" type="submit" />
+            </form>
+          </li>
+        </ul>
+        <div class="">
+          <form class="" action="{% url 'clear' selected_store.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" name="button">Remove Checked Items</button>
+          </form>
+        </div>
+      </div>
+    <script type="text/javascript">
+      document.querySelector('#submit').disabled = true;
+      document.querySelector('#itemInput').onkeyup = () => {
+        if (document.querySelector('#itemInput').value.length > 0)
+          document.querySelector('#submit').disabled = false;
+        else
+          document.querySelector('#submit').disabled = true;
+        };
+      function storeChange(selectObject) {
+        let storeForm = document.querySelector('form');
+        storeForm.setAttribute('action', selectObject.value);
+        storeForm.submit();
+      };
+      var nonItems = "{{ non_items|unordered_list|striptags|escapejs}}".split(/\r?\n/);
+      nonItems = nonItems.map(s => s.trim());
+    </script>
+    <script type="text/javascript" src="{% static 'scripts/autocomplete.js' %}"></script>
+  </body>
+</html>
