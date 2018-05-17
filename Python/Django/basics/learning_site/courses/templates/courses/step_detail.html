@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% load course_extras %}
 
 {% block title %}{{ step.title }} - {{ step.course.title }}{% endblock title %}
 
@@ -8,8 +9,9 @@
   <a href="{% url 'courses:detail' pk=step.course.pk %}">{{ step.course.title }}</a>
   </h2>
   <h3>{{ step.title }}</h3>
-  {% with con=step.content %}
-    {{ con|linebreaks }} Content: {{ con|wordcount }} words.
+  {% with con=step.content min=step.content|wordcount|time_estimate %}
+    {{ con|linebreaks }}
+    Content: {{ con|wordcount }} words. Estimated time to complete: {{ min }} minute{{ min|pluralize }}.
   {% endwith %}
 </article>
 {% endblock content %}
