@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% load static from staticfiles %}
+{% load humanize course_extras %}
 {% block title %}Courses{% endblock title %}
 {% block static %}<link rel="stylesheet" href="{% static 'courses/css/courses.css' %}">
 {% endblock static %}
@@ -10,9 +11,9 @@
     <header> <a href="{% url 'courses:detail' pk=course.pk %}">{{ course.title }}</a></header>
     <div class="card-copy">
       {% if course.description|wordcount <= 5 %}
-      <p>{{ course.description }}</p>
+      <p>{{ course.description|markdown_to_html }}</p>
       {% else %}
-      <p>{{ course.description|truncatewords:5 }}</p>
+      <p>{{ course.description|markdown_to_html|truncatewords:5 }}</p>
       <a href="{% url 'courses:detail' pk=course.pk %}">read more</a>
       {% endif %}
       <div class="">
