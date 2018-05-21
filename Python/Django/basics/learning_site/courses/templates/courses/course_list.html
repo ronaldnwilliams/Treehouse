@@ -1,30 +1,27 @@
-{% extends "layout.html" %}
-{% load static from staticfiles %}
-{% load humanize course_extras %}
-{% block title %}Courses{% endblock title %}
-{% block static %}<link rel="stylesheet" href="{% static 'courses/css/courses.css' %}">
-{% endblock static %}
+{% extends "courses/layout.html" %}
+{% load course_extras %}
+
+{% block title %}All{% endblock %}
+
 {% block content %}
-<div class="cards">
-  {% for course in courses %}
-  <div class="card">
-    <header> <a href="{% url 'courses:detail' pk=course.pk %}">{{ course.title }}</a></header>
-    <div class="card-copy">
-      {% if course.description|wordcount <= 5 %}
-      <p>{{ course.description|markdown_to_html }}</p>
-      {% else %}
-      <p>{{ course.description|markdown_to_html|truncatewords:5 }}</p>
-      <a href="{% url 'courses:detail' pk=course.pk %}">read more</a>
-      {% endif %}
-      <div class="">
-        <p>Created on: {{ course.created_at|date:"m/d/y" }} </p>
-        <p>Teacher: {{ course.teacher }}</p>
-      </div>
+    <div class="row columns">
+        {{ block.super }}
     </div>
-  </div>
-  {% endfor %}
-  <div class="">
-    <p>Have questions? Contact us! {{ email|urlize }}</p>
-  </div>
-</div>
-{% endblock content %}
+    <div class="row">
+        {%  for course in courses %}
+            <div class="small-6 columns">
+                <div class="callout">
+                    <h5><a href="{% url 'courses:detail' pk=course.pk %}">{{ course.title }}</a></h5>
+                    <div class="card-copy">
+                        {{ course.description|markdown_to_html|truncatewords:5 }}
+                    </div>
+                </div>
+            </div>
+
+            {% if forloop.counter|divisibleby:"2" %}
+                </div>
+                <div class="row">
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

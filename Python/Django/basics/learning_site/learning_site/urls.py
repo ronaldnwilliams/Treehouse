@@ -23,8 +23,9 @@ from . import views
 urlpatterns = [
     path('courses/', include(('courses.urls', 'courses'), namespace='courses')),
     path('teachers/', include(('teachers.urls', 'teachers'), namespace='teachers')),
-    path('admin/', admin.site.urls),
+    path('suggest/', views.suggestion_view, name='suggestion'),
     path('', views.index, name='home'),
+    path('admin/', admin.site.urls),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
