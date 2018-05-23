@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <link rel="stylesheet" href="./app.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+    var PLAYERS = [
+      {
+        name: "Ron Williams",
+        score: 21,
+        id: 1,
+      },
+      {
+        name: "Lorette Williams",
+        score: 12,
+        id: 2,
+      },
+    ]
+
+    function Header(props) {
+      return (
+        <div className="header">
+          <h1>{props.title}</h1>
+        </div>
+      );
+    }
+
+    class Counter extends React.Component {
+      render() {
+        return (
+          <div className="counter">
+            <button className="counter-action decrement"> - </button>
+            <div className="counter-score"> {this.props.score} </div>
+            <button className="counter-action increment"> + </button>
+          </div>
+        );
+      }
+    }
+
+    function Player(props) {
+      return (
+        <div className="player">
+          <div className="player-name">
+            {props.name}
+          </div>
+          <div className="player-score">
+            <Counter score={props.score} />
+          </div>
+        </div>
+      );
+    }
+
+    function Application(props) {
+      return (
+        <div className="scoreboard">
+          <Header title={props.title} />
+          <div className="players">
+            {props.players.map(function(player) {
+              return <Player name={player.name} score={player.score} key={player.id}/>
+            })}
+          </div>
+        </div>
+      );
+    }
+
+    Application.defaultProps = {
+      title: "Scoreboard",
+    }
+
+    ReactDOM.render(<Application players={PLAYERS} />, document.getElementById('root'));
+
+
+    </script>
+    <!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      To set up a production-ready React build environment, follow these instructions:
+      * https://reactjs.org/docs/add-react-to-a-new-app.html
+      * https://reactjs.org/docs/add-react-to-an-existing-app.html
+
+      You can also use React without JSX, in which case you can remove Babel:
+      * https://reactjs.org/docs/react-without-jsx.html
+      * https://reactjs.org/docs/cdn-links.html
+    -->
+  </body>
+</html>
