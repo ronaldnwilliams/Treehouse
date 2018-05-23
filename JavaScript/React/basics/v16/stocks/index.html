@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+    class MyComponent extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          error: null,
+          isLoaded: false,
+          quote: null
+        };
+      }
+
+      componentDidMount() {
+        this.timer = setInterval( () => this.getQuote(), 500)
+      }
+
+      async getQuote() {
+        fetch("https://api.iextrading.com/1.0/stock/aapl/quote")
+          .then(res => res.json())
+          .then(
+            (result) => {
+              this.setState({
+                isLoaded: true,
+                quote: result
+              });
+            },
+            // Note: it's important to handle errors here
+            // instead of a catch() block so that we don't swallow
+            // exceptions from actual bugs in components.
+            (error) => {
+              this.setState({
+                isLoaded: true,
+                error
+              });
+            }
+          )
+      }
+
+      render() {
+        const { error, isLoaded, quote } = this.state;
+        if (error) {
+          return <div>Error: {error.message}</div>;
+        } else if (!isLoaded) {
+          return <div>Loading...</div>;
+        } else {
+          return (
+            <ul>
+              <li>
+                Symbol: {quote.symbol}
+              </li>
+              <li>
+                Last Trade: {quote.latestPrice}
+              </li>
+              <li>
+                Change: {quote.change} ({quote.changePercent})
+              </li>
+              <li>
+                Volume: {quote.latestVolume}
+              </li>
+            </ul>
+          );
+        }
+      }
+    }
+
+    ReactDOM.render(
+      <MyComponent />,
+      document.getElementById('root')
+    );
+
+    </script>
+    <!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      To set up a production-ready React build environment, follow these instructions:
+      * https://reactjs.org/docs/add-react-to-a-new-app.html
+      * https://reactjs.org/docs/add-react-to-an-existing-app.html
+
+      You can also use React without JSX, in which case you can remove Babel:
+      * https://reactjs.org/docs/react-without-jsx.html
+      * https://reactjs.org/docs/cdn-links.html
+    -->
+  </body>
+</html>
